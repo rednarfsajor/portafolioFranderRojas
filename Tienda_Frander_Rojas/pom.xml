@@ -14,7 +14,7 @@
     <name>tienda_Frander_Rojas</name>
     <description>Proyecto tienda de martes noche 2023 IIIC</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>21</java.version>
     </properties>
     <dependencies>
         <dependency>
