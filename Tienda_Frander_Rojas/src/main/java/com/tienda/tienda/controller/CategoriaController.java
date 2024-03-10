@@ -42,11 +42,11 @@ public class CategoriaController {
     
      @PostMapping("/guardar")
      public String categoriaGuardar(Categoria categoria,
-         @RequestParam("imageFile") MultipartFile imageFile){
+         @RequestParam("imagenFile") MultipartFile imagenFile){
          
-         if (!imageFile.isEmpty()) {
+         if (!imagenFile.isEmpty()) {
              categoriaService.save(categoria);
-             categoria.setRutaImagen(firebaseStorageService.cargaImagen(imageFile, "categoria",categoria.getIdCategoria()));
+             categoria.setRutaImagen(firebaseStorageService.cargaImagen(imagenFile, "categoria",categoria.getIdCategoria()));
          }
          categoriaService.save(categoria);
          return "redirect:/categoria/listado";
@@ -62,6 +62,6 @@ public class CategoriaController {
      public String categoriaModificar(Categoria categoria, Model model){
          categoria=categoriaService.getCategoria(categoria);
          model.addAttribute("categoria", categoria);
-         return "redirect:/categoria/modifica";
+         return "/categoria/modifica";
      }
 }
